@@ -36,7 +36,7 @@ const TodoPage = () => {
     }
   };
 
-  const deleteItem = async (id) => {
+  const deleteTask = async (id) => {
     try {
       console.log(id);
       const response = await api.delete(`/tasks/${id}`);
@@ -95,7 +95,7 @@ const TodoPage = () => {
 
       <TodoBoard
         todoList={todoList}
-        deleteItem={deleteItem}
+        deleteTask={deleteTask}
         toggleComplete={toggleComplete}
       />
     </Container>
