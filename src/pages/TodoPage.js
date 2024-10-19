@@ -6,10 +6,9 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { useNavigate } from "react-router-dom";
 
-const TodoPage = () => {
+const TodoPage = ({user, setUser}) => {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const getTasks = async () => {
@@ -62,9 +61,10 @@ const TodoPage = () => {
     }
   };
 
-  const handelLogout = async () => {
-    await sessionStorage.removeItem("user");
+  const handleLogout = async () => {
+    await sessionStorage.removeItem("token");
     setUser(null);
+    console.log("error");
     navigate("/login");
   };
 
@@ -87,7 +87,7 @@ const TodoPage = () => {
           </button>
         </Col>
         <Col xs={12} sm={2}>
-          <button onClick={handelLogout} className="button-add">
+          <button onClick={handleLogout} className="button-add">
             로그아웃
           </button>
         </Col>
