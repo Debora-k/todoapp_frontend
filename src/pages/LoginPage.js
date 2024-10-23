@@ -24,7 +24,7 @@ const LoginPage = ({user, setUser}) => {
       }
       throw new Error(response.data.error);
     } catch(error) {
-      setError(error.message);
+      setError(error.response.data.error);
     }
   };
 

@@ -26,7 +26,7 @@ const RegisterPage = () => {
         throw new Error(response.data.error);
       }
     } catch(error) {
-      setError(error.message);
+      setError(error.response.data.error);
     }
 
   }
